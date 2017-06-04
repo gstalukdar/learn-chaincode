@@ -252,6 +252,10 @@ func (t *SimpleChaincode) getTransactionDetail(stub shim.ChaincodeStubInterface,
 	}
 
 	json.Unmarshal(inputTransactionAsBytes,&inputTransaction)
+	
+	jsonResp := "{\""  + string(inputTransactionAsBytes) + "\"}"
+	fmt.Printf("Query Response for detail:%s\n", jsonResp)
+	
 	return inputTransactionAsBytes,nil
 }
 
@@ -277,7 +281,8 @@ func (t *SimpleChaincode) getSettlementSummary (stub shim.ChaincodeStubInterface
 	}
 
 	json.Unmarshal(settlementInfoAsBytes,&settlementInfo)
-	fmt.Println((settlementInfoAsBytes))
+	jsonResp := "{\""  + string(settlementInfoAsBytes) + "\"}"
+	fmt.Printf("Query Response for summary:%s\n", jsonResp) 
 
 	return settlementInfoAsBytes, nil
 }
